@@ -1,0 +1,279 @@
+<!-- <body data-layout="horizontal"> -->
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+    {{>headeremp}}
+    {{>sidebaremp}}
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                        {{>pagetitle}}
+                        <!-- end page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div id="radioButtonTramite">
+                            <span>Tipo de expediente: </span>&nbsp;&nbsp;
+                            <span class="me-3">Externo</span> &nbsp; <input type="checkbox" id="externo"
+                                onclick="javascript:Seleccionar();" class="form-check-input">
+                            &nbsp;&nbsp;
+                            <span class="me-3">Interno</span> &nbsp; <input type="checkbox" id="interno"
+                                onclick="javascript:Seleccionar();" class="form-check-input">
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">
+                                    Para crear los expedientes por favor seleccionar si es externo o interno
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-12">
+                                        <div class="row bt-4 ocultar" id="expedienteExterno" style="display: none;">
+
+                                            <form action="">
+                                                <div class="container">
+                                                    <h4><b>Expediente externo</b></h4>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Fecha de registro</label>
+                                                            <input class="form-control" type="date" name="" id="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Número de expediente</label>
+                                                            <input class="form-control" type="number" name="" id="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Unidad que registra</label>
+                                                            <select class="form-control" name="" id="" required>
+                                                                <option selected>Mesa de partes</option>
+                                                                <option value="1">Gerencia</option>
+                                                                <option value="2">Alcaldia</option>
+                                                                <option value="3">Segretaria General</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Firma</label>
+                                                            <input class="form-control" type="text" placeholder=""
+                                                                required>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Cargo</label>
+                                                            <input class="form-control" type="text" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Tipo de documento</label>
+                                                            <select class="form-control" name="" id="" required>
+                                                                <option selected>Carta</option>
+                                                                <option value="1">Oficio</option>
+                                                                <option value="2">Solicitud</option>
+                                                                <option value="3">Autorización</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Fecha del Documento</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Número</label>
+                                                            <input class="form-control" type="number" name="" id=""
+                                                                onkeypress="return isNumberKey(event)">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Siglas</label>
+                                                            <input class="form-control" type="text">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Folios</label>
+                                                            <input class="form-control" type="number" required
+                                                                minlength="1" maxlength="8"
+                                                                onkeypress="return isNumberKey(event)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Asunto</label>
+                                                            <textarea class="form-control" name="" id="" cols="5"
+                                                                rows="2"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Anexo/Detalle</label>
+                                                            <input class="form-control" type="text">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Procedimiento TUPA</label>
+                                                            <select class="form-control" name="" id="">
+                                                                <option selected>Acceso a la información pública
+                                                                </option>
+                                                                <option selected>Acta de matrimonio</option>
+                                                                <option selected>Solicitud de apertura de local</option>
+                                                                <option selected>Acta de nacimiento</option>
+                                                                <option selected>Acta de fallecimiento</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button class="btn btn-success">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="row mt-3 ocultar" id="expedienteInterno" style="display: none;">
+
+                                            <form action="">
+                                                <h4>Expediente Interno</h4>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="">Fecha de registro</label>
+                                                            <input class="form-control" type="date" name="" id="">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">N° de expediente</label>
+                                                            <input class="form-control" type="number">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Unidad que registra</label>
+                                                            <select class="form-control" name="" id="" required>
+                                                                <option selected>Mesa de partes</option>
+                                                                <option value="1">Mesa de partes</option>
+                                                                <option value="2">Alcaldia</option>
+                                                                <option value="3">Secretaria General</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Para firma de: </label>
+                                                            <select class="form-control" name="" id="">
+                                                                <option selected="">Nombre del encargado del área
+                                                                </option>
+                                                                <option value="1">en caso de pertenecer a más áreas
+                                                                    aparecen aquí</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Otros vistos</label>
+                                                            <input class="form-control" type="text" name="" id="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="">Tipo de destino</label>
+                                                            <select class="form-control" name="" id="">
+                                                                <option value="1">Interno [Jefe de oficina]</option>
+                                                                <option value="2">Interno [Trabajador]</option>
+                                                                <option value="3">Externo o editar destinatario</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Destino(s)</label>
+                                                            <input class="form-control" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3 mb-3">
+                                                        <div class="col-md-2">
+                                                            <label for="">Número</label>
+                                                            <input class="form-control" type="number">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="">Asunto:</label>
+                                                            <input class="form-control" type="text" name="" id="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-4 mb-4">
+                                                        <div class="col">
+                                                            <label for="">Referencia contextual</label>
+                                                            <input class="form-control" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3 mt-3">
+                                                        <div class="col">
+                                                            <label for="">Cuerpo</label>
+                                                            <textarea name="" id="miEditor" cols="30"
+                                                                rows="10"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <input class="btn btn-success" type="button"
+                                                                value="Guardar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+        {{>footer}}
+    </div>
+    <!-- end main content-->
+</div>
+<!-- END layout-wrapper -->
+
+
+
+
+
+<!-- script para el editor online WYSIWYG-->
+<script src="https://cdn.tiny.cloud/1/zjkp6ktf0fnsz5tng92y78a06791jpw8ypcm7t870l606soq/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#miEditor',
+        plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+    });
+</script>
+<!-- mostrar formulario según check de los radiobuttons -->
+<script>
+    function Seleccionar() {
+        $('#externo').on('change', function (env) {
+            env.preventDefault();
+            $('#externo').prop("checked", true);
+            $('#interno').prop("checked", false);
+
+
+            document.getElementById("expedienteExterno").style.display = "block";
+            document.getElementById("expedienteInterno").style.display = "none";
+        });
+        $('#interno').on('change', function (env) {
+            env.preventDefault();
+            $('#interno').prop("checked", true);
+            $('#externo').prop("checked", false);
+
+            document.getElementById("expedienteInterno").style.display = "block";
+            document.getElementById("expedienteExterno").style.display = "none";
+        });
+    }
+</script>
+{{>footer}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</div>

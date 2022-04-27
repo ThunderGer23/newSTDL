@@ -1,0 +1,370 @@
+<!-- <body data-layout="horizontal"> -->
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+
+    {{>headeradmin}}
+    <!-- ========== Left Sidebar Start ========== -->
+    {{>sidebaradmin}}
+    <!-- Left Sidebar End -->
+
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                {{>pagetitle}}
+                <!-- end page title -->
+
+            </div> <!-- container-fluid -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearUsuario">
+                        Añadir nuevo empleado
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#editarEmpleado">
+                        Editar Personal
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarArea">
+                        Cambiar de Aŕea
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#cambiarContrasena">
+                        Cambiar contraseña
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#eliminarUsuario">
+                        Eliminar personal
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Acciones</th>
+                                <th>DNI</th>
+                                <th>Nombres</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Correo Electrónico</th>
+                                <th>Departamento</th>
+                                <th>Cargo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="col"><input type="checkbox"></td>
+                                <td scope="row">45781245</td>
+                                <td>VIVIANA</td>
+                                <td>CHURA</td>
+                                <td>FERNANDEZ</td>
+                                <td>vivichu@hotmail.com</td>
+                                <td>Logistica</td>
+                                <td>Jefe</td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><input type="checkbox"></td>
+                                <td scope="row">45781246</td>
+                                <td>RONALD CRISTIAN </td>
+                                <td>OSCCO</td>
+                                <td>MAMANI</td>
+                                <td>ronaldmamani@hotmail.com</td>
+                                <td>Administración</td>
+                                <td>Asistente</td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><input type="checkbox"></td>
+                                <td scope="row">45781248</td>
+                                <td>LUZ MARICRUZ</td>
+                                <td>RENGIFO</td>
+                                <td>RIMACHI</td>
+                                <td>rimachiluz@hotmail.com</td>
+                                <td>Secretaria</td>
+                                <td>Secretaria</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End Page-content -->
+        {{>footer}}
+    </div>
+    <!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+
+{{!-- end code --}}
+
+
+
+{{!-- end code --}}
+
+<!-- Crear usuario -->
+<div class="modal fade myModal" id="crearUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Crear nuevo empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/registroemp" method="POST">
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="DNI" class="form-control"
+                                    onkeypress="return isNumberKey(event)" requiredsize="8" minlength="4" maxlength="8"
+                                    placeholder="Ingresar DNI" />
+                                <label class="form-label">DNI</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="nombre" class="form-control" placeholder="Nombres" disabled />
+                                <label class="form-label">Nombre</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--ap pat -->
+                    <div class="row mb-4">
+
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="apellido_paterno" class="form-control"
+                                    placeholder="Apellido Paterno" disabled />
+                                <label class="form-label">Apellido Paterno</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="apellido_materno" class="form-control"
+                                    placeholder="Apellido Materno" disabled />
+                                <label class="form-label">Apellido Materno</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+
+                        <div class="col">
+                            <div class="form-outline mb-4">
+                                <input type="email" name="correo" class="form-control" placeholder="Ingresa correo" />
+                                <label class="form-label">Correo Electrónico</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" name="contrasena" class="form-control"
+                                    placeholder="Ingresa contraseña" />
+                                <label class="form-label">Contraseña</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline mb-4">
+                                <div class="form-floating">
+                                    <select class="form-select" name="id_Dept" id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                        <option selected>Alcaldia</option>
+                                        <option value="1">Gerencia</option>
+                                        <option value="2">Tesoreria</option>
+                                        <option value="3">Secretaria</option>
+                                    </select>
+                                    <label for="floatingSelect">Selecciona un departamento</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline mb-4">
+                                <div class="form-floating">
+                                    <select class="form-select" name="id_Dept" id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                        <option selected>Feje</option>
+                                        <option value="1">Secretaria</option>
+                                        <option value="2">Asistente</option>
+                                        <option value="3">Abogado</option>
+                                    </select>
+                                    <label for="floatingSelect">Selecciona un cargo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- editar usuario -->
+<div class="modal fade myModal" id="editarEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar los datos de empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/registroemp" method="POST">
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="DNI" class="form-control"
+                                    onkeypress="return isNumberKey(event)" requiredsize="8" minlength="4" maxlength="8"
+                                    value="45781245" />
+                                <label class="form-label">DNI</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="nombre" class="form-control" value="Viviana" />
+                                <label class="form-label">Nombre</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--ap pat -->
+                    <div class="row mb-4">
+
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="apellido_paterno" class="form-control" value="Chura" />
+                                <label class="form-label">Apellido Paterno</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <input type="text" name="apellido_materno" class="form-control" value="Fernandez" />
+                                <label class="form-label">Apellido Materno</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+
+                        <div class="col">
+                            <div class="form-outline mb-4">
+                                <input type="email" name="correo" class="form-control" value="vivichu@hotmail.com" />
+                                <label class="form-label">Correo Electrónico</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Cambiar área -->
+<div class="modal fade myModal" id="cambiarArea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cambiar de Area a {nombreEmpleado}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/registroemp" method="POST">
+                    <div class="form-outline mb-4">
+                        <div class="form-floating">
+                            <select class="form-select" name="id_Dept" id="floatingSelect"
+                                aria-label="Floating label select example">
+                                <option selected>Alcaldia</option>
+                                <option value="1">Gerencia</option>
+                                <option value="2">Tesoreria</option>
+                                <option value="3">Secretaria</option>
+                            </select>
+                            <label for="floatingSelect">Selecciona un departamento</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Cambiar contraseña -->
+<div class="modal fade" id="cambiarContrasena" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="col">
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" name="contrasena" class="form-control"
+                                placeholder="Ingresa contraseña" />
+                            <label class="form-label">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- eliminar personal  -->
+<div class="modal fade myModal" id="eliminarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar usuario(s)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estas seguro de eliminar a <span>{checkboxSelected}</span> ?</p>
+                <form action="" method="post">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{>footer}}
+</div>

@@ -1,0 +1,158 @@
+<!-- <body data-layout="horizontal"> -->
+<!-- Begin page -->
+<div id="layout-wrapper">
+  {{>header}}
+  {{>sidebar}}
+  <div class="main-content">
+    <div class="page-content">
+      <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+          <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+              <h4 class="mb-sm-0 font-size-18">Mi perfil</h4>
+
+              <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                  <li class="breadcrumb-item active">Mi perfil</li>
+                </ol>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Editar mis datos personales</h4>
+              <p class="card-category">Completa tu perfil</p>
+            </div>
+            <div class="card-body">
+              <form action="/userperfil" method="post">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Documento de identidad(no se puede modificar)</label>
+                      <input type="text" name="doc_identidad" class="form-control" placeholder={{user.DNI}} disabled />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Nombre</label>
+                      <input type="text" name="name" class="form-control" placeholder="{{user.nombre}}" disabled />
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Apellido paterno</label>
+                        <input type="text" name="apPaterno" class="form-control" placeholder="{{user.apellido_paterno}}"
+                          disabled />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Apellido Materno</label>
+                        <input type="text" name="apMaterno" class="form-control" placeholder="{{user.apellido_materno}}"
+                          disabled />
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Teléfono</label>
+                        <input type="text" name="phone" class="form-control" placeholder="Tú número de teléfono/celular"
+                          value="{{user.telefono}}" onkeypress="return isNumberKey(event)">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Email</label>
+                      <input type="email" name="email" class="form-control" value="{{user.correo}}">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Distrito</label>
+                      <input type="text" name="district" class="form-control" value="{{user.distrito}}">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Región</label>
+                      <input type="text" name="region" class="form-control" value="{{user.provincia}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Dirección</label>
+                      <input type="text" name="address" class="form-control" placeholder="Tú dirección fiscal"
+                        value="{{user.calle}}">
+                    </div>
+                  </div>
+                </div>
+                <input type="submit" class="btn btn-primary pull-right" value="Actualizar mi perfil"></input>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="dropdown text-end">
+                                            <a class="text-muted dropdown-toggle font-size-16" href="apps-contacts-grid.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                              <i class="bx bx-dots-horizontal-rounded"></i>
+                                            </a>
+                                          
+                                        </div>
+                                        
+                                        <div class="mx-auto mb-4">
+                                            <img src="/images/perfilImage.png" alt="" class="avatar-xl rounded-circle img-thumbnail">
+                                        </div>
+                                    
+              <h4 class="card-title">{{user.nombre}}</h4>
+              <h4 class="card-title">{{user.apellido_paterno}} {{user.apellido_materno}}</h4>
+              <p class="card-description">
+                DNI: {{user.DNI}}
+              </p>
+              <p class="card-description">{{user.distrito}}, {{user.provincia}}, {{user.calle}}</p>
+            
+                                        
+                                    </div>
+                                </div>
+                                <!-- end card -->
+          
+        </div>
+      </div>
+        <!-- end row-->
+      </div>
+      <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+
+
+    {{>footer}}
+  </div>
+  <!-- end main content-->
+</div>
+<!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+
+
+
+

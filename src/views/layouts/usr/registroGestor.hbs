@@ -1,0 +1,199 @@
+<div class="auth-page">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-xxl-3 col-lg-4 col-md-5">
+                <div class="auth-full-page-content d-flex p-sm-5 p-4">
+                    <div class="w-100">
+                        <div class="d-flex flex-column h-100">
+                            <div class="mb-4 mb-md-5 text-center">
+                                <div class="px-5 ms-xl-4">
+                                    <i class="fas fa-crow fa-2x me-3 mt-xl-4" style="color: #709085;"></i>
+                                    <span class="h1 fw-bold mb-0">MuniAquia</span>
+                                </div>
+                            </div>
+                            <div class="auth-content my-auto">
+                                <div class="text-center">
+                                    <h5 class="mb-0">Registra tu cuenta</h5>
+                                    <p class="text-muted mt-2">Municipalidad distrital de Aquia.</p>
+                                </div>
+                                <form class="needs-validation mt-4 pt-2" novalidate action="/registro" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="DNI" class="form-label">DNI</label>
+                                                <input name="DNI" type="phone" class="form-control" required
+                                                    minlength="8" maxlength="8" onkeypress="return isNumberKey(event)"
+                                                    id="DNI" placeholder="Ingresa tu DNI" />
+                                                <div class="invalid-feedback">
+                                                    DNI inválido
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="telefono" class="form-label">Teléfono</label>
+                                                <input type="phone" name="phone" class="form-control" required
+                                                    minlength="9" maxlength="9" onkeypress="return isNumberKey(event)"
+                                                    placeholder="Número de teléfono" />
+                                                <div class="invalid-feedback">
+                                                    Este campo es necesario
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Correo Electrónico</label>
+                                            <input type="email" name="email" class="form-control" required
+                                                placeholder="Tu correo" />
+                                            <div class="invalid-feedback">
+                                                Este campo es necesario
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Contraseña</label>
+                                            <input type="password" name="password" class="form-control" required
+                                                placeholder="Tu contraseña" />
+                                            <div class="invalid-feedback">
+                                                Ingresa tu contraseña
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <!-- dirección fiscal -->
+
+                                            <label class="form-label">Distrito</label>
+                                            <input type="text" name="distrito" class="form-control" required />
+                                            <div class="invalid-feedback">
+                                                Selecciona el distrito
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Provincia</label>
+                                            <input type="text" name="provincia" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Selecciona la provincia
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Calle</label>
+                                        <input type="text" name="calle" class="form-control" required>
+                                        <div class="invalid-feedback">
+                                            Necesitas ingresar la calle/Avenida/Jiron
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <p class="mb-0">Al registrarte aceptas <a href="#" class="text-primary">terminos
+                                                de uso</a> de la Municipalidad Distrital de Aquia</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input class="btn btn-primary w-100 waves-effect waves-light"
+                                            type="submit" value="Registrar">
+                                    </div>
+                                </form>
+                                <div class="mt-5 text-center">
+                                    <p class="text-muted mb-0">¿Ya tienes una cuenta? <a href="/"
+                                            class="text-primary fw-semibold"> Ingresar </a> </p>
+                                </div>
+                            </div>
+                            <div class="mt-4 mt-md-5 text-center">
+                                <p class="mb-0">©
+                                    <script>document.write(new Date().getFullYear())</script> Diseñado por los <i
+                                        class="mdi mdi-heart text-danger"></i> ThunderGers
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xxl-9 col-lg-8 col-md-7">
+                <div class="auth-bg pt-md-5 p-4 d-flex">
+                    <div class="bg-overlay bg-primary">
+                        <ul class="bg-bubbles">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="row justify-content-center align-items-center">
+                                <div class="col-xl-7">
+                                    <div class="p-0 p-sm-4 px-xl-0">
+                                        <div id="reviewcarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-indicators carousel-indicators-rounded justify-content-start ms-0 mb-0">
+                                                <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#reviewcarouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <!-- end carouselIndicators -->
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="testi-contain text-white">
+                                                    <i class="bx bxs-quote-alt-left text-success display-6"></i>
+
+                                                    <h4 class="mt-4 fw-medium lh-base text-white">
+                                                        “Restos arqueológicos: Purunmarca, Naupamarca, Shulaymarca,
+                                                        Huallanca Jirca, Cantocuta. Hay otros centros arqueológicos con
+                                                        características incaicas: Tallenga, Pukamachay, Shulca,
+                                                        Alkajirca y Jerusalén..”
+                                                    </h4>
+                                                    <div class="mt-4 pt-3 pb-5">
+                                                    </div>
+                                                </div>
+                                                </div>
+
+                                                <div class="carousel-item">
+                                                    <div class="testi-contain text-white">
+                                                    <i class="bx bxs-quote-alt-left text-success display-6"></i>
+
+                                                    <h4 class="mt-4 fw-medium lh-base text-white">
+                                                        “ATRACTIVOS TURÍSTICOS
+
+                                                        Son atractivos la pintura rupestre denominado por el pueblo como
+                                                        el Sol y la Luna y las pinturas rupestres de Pucamachay.”</h4>
+                                                    <div class="mt-4 pt-3 pb-5">
+
+                                                    </div>
+                                                </div>
+                                                </div>
+
+                                                <div class="carousel-item">
+                                                    <div class="testi-contain text-white">
+                                                    <i class="bx bxs-quote-alt-left text-success display-6"></i>
+
+                                                    <h4 class="mt-4 fw-medium lh-base text-white">
+                                                        “ANEXOS
+
+                                                        Sus anexos son: Pachapaqui, Pacarenca, Racrachaca, San Miguel,
+                                                        Santa Rosa, Suyán, Uran Yacu, Vista Alegre y Villanueva.”</h4>
+                                                    <div class="mt-4 pt-3 pb-5">
+
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- end carousel-inner -->
+                                        </div>
+                                        <!-- end review carousel -->
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="vertical-menu">
+
+    <div data-simplebar class="h-100">
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li>
+                <a href="#"  id="nav-userperfil" >
+                    <i class="fa-solid fa-house"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/registraremp"  id="nav-userperfil" >
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Empleados</span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="/admin/gestA"  id="nav-user" >
+                    <i class="fa-solid fa-building"></i>
+                    <span>Áreas</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/gestionar-cargo"  id="nav-gentramite" >
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>Cargos</span>
+                </a>
+            </li>
+            {{!-- <li>
+                <a href="#"  id="nav-userperfil" >
+                    <i class="material-icons">archive</i>
+                    <p>Gestion</p>
+                </a>
+            </li> --}}
+            <li>                
+                <form action="/logoutsa" method="POST"  id="nav-home" >
+                    <input type="submit" name="logout" class="btn btn-success" value="logout">                    
+                </form>
+            </li>
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>
+{{!-- en sidebar code --}}

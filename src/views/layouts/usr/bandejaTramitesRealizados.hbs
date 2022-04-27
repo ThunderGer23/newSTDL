@@ -1,0 +1,123 @@
+<!-- <body data-layout="horizontal"> -->
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+
+
+  {{>header}}
+
+
+  <!-- ========== Left Sidebar Start ========== -->
+  {{>sidebar}}
+  <!-- Left Sidebar End -->
+
+
+
+  <!-- ============================================================== -->
+  <!-- Start right Content here -->
+  <!-- ============================================================== -->
+  <div class="main-content">
+
+    <div class="page-content">
+      <div class="container-fluid">
+
+        <!-- start page title -->
+        {{>pagetitleGestor}}
+        <!-- end page title -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title ">BANDEJA DE TRÁMITES REALIZADOS</h4>
+                <p class="card-category"> Aquí se muestran todos los trámites realizados</p>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <form action="" method="" ref="" id="" encType="multipart/form-data">
+                    <table class="table table-hover">
+                      <thead class=" text-primary">
+                        <th>
+                          N° de expediente
+                        </th>
+                        <th>
+                          Fecha
+                        </th>
+                        <th>
+                          {{timeago created_at}}
+                        </th>
+                        <th>
+                          Documento
+                        </th>
+                        <th>
+                          Asunto
+                        </th>
+                        <th>Folios</th>
+                        <th>Estado</th>
+                        <th>Adjunto</th>
+                        <th>Acciones</th>
+                      </thead>
+                      <tbody>
+                        {{#each rows}}
+                        <tr>
+                          <td>
+                            {{num_doc}}
+                          </td>
+                          <td>
+                            {{fecha}}
+                          </td>
+                          <td>
+                            {{hora}}
+                          </td>
+                          <td>
+                            {{nombre_doc}}
+                          </td>
+                          <td>
+                            {{nombre_Tramite}}
+                          </td>
+                          <td>
+                            {{numero_hojas}}
+                          </td>
+                          <td>
+                            <form>
+                              <input name="" id="" class="btn btn-danger btn-sm" href="#" type="submit"
+                                value="{{estado}}" role="button" />
+                            </form>
+                          </td>
+                          <td>
+                            <form action="/emp/tramites/pdf" method="post">
+                              <input type="submit" name={{num_doc}} role="a" class="material-icons"
+                                value="picture_as_pdf" style="background:none;border:none;color:white;" />
+                            </form>
+                          </td>
+                          <td>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                              <form action="/emp/tramites/deltramite" method="post">
+                                <input type="submit" name="{{num_doc}}" id="{{num_doc}}" class="btn btn-warning"
+                                  value="Eliminar" role="button" />
+                              </form>
+                              <form>
+                                <input type="sumbit" name="" id="" class="btn btn-success" role="button"
+                                  value="Ver ruta" />
+                              </form>
+                            </div>
+                          </td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+    {{>footer}}
+  </div>
+  <!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->

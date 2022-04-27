@@ -1,0 +1,929 @@
+#container-div {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+}
+
+#container-content {
+    position: absolute;
+    width: 60vw;
+    height: 70vh;
+    left: 320px;
+    top: 50px;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+}
+
+#titulos {
+    position: absolute;
+    width: 35vw;
+    height: 50vh;
+    left: 190px;
+    top: 29px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #4AA569;
+}
+
+#subtitulos {
+    position: absolute;
+    width: 30vh;
+    height: 26vh;
+    left: 100px;
+    top: 120px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #000000;
+}
+
+.texto01 {
+    position: absolute;
+    width: 115px;
+    height: 18px;
+    left: 100px;
+    top: 150px;
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+}
+
+.textbox01 {
+    position: absolute;
+    width: 205px;
+    height: 30px;
+    left: 290px;
+    top: 140px;
+    background: #FFFFFF;
+    border: 1px solid #4AA569;
+    box-sizing: border-box;
+}
+
+.texto02 {
+    position: absolute;
+    width: 125px;
+    height: 18px;
+    left: 100px;
+    top: 220px;
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+}
+
+.textbox02 {
+    position: absolute;
+    width: 205px;
+    height: 30px;
+    left: 290px;
+    top: 210px;
+    background: #FFFFFF;
+    border: 1px solid #4AA569;
+    box-sizing: border-box;
+}
+
+.texto03 {
+    position: absolute;
+    width: 150px;
+    height: 18px;
+    left: 96px;
+    top: 290px;
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+}
+
+.textbox03 {
+    position: absolute;
+    width: 205px;
+    height: 30px;
+    left: 290px;
+    top: 280px;
+    background: #FFFFFF;
+    border: 1px solid #4AA569;
+    box-sizing: border-box;
+}
+
+.texto04 {
+    position: absolute;
+    width: 165px;
+    height: 18px;
+    left: 88px;
+    top: 360px;
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+}
+
+.textbox04 {
+    position: absolute;
+    width: 205px;
+    height: 30px;
+    left: 290px;
+    top: 350px;
+    background: #FFFFFF;
+    border: 1px solid #4AA569;
+    box-sizing: border-box;
+}
+
+.escudo-aquia {
+    position: absolute;
+    width: 298px;
+    height: 294px;
+    left: 520px;
+    top: 120px;
+    background: url('/images/aquia.jpg');
+}
+
+.btn-registro {
+    position: absolute;
+    width: 143px;
+    height: 42px;
+    left: 107px;
+    top: 430px;
+    background: #4AAA56;
+    border-radius: 10px;
+}
+
+.btn-ingresar {
+    position: absolute;
+    width: 143px;
+    height: 42px;
+    left: 353px;
+    top: 430px;
+    background: #4AAA56;
+    border-radius: 10px;
+}
+
+#textbox-login01 {
+    position: absolute;
+    width: 225px;
+    height: 30px;
+    left: 100px;
+    top: 150px;
+    background: #FFFFFF;
+    border: 1px solid #01A11A;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: #828181;
+}
+
+#textbox-login02 {
+    position: absolute;
+    width: 225px;
+    height: 30px;
+    left: 100px;
+    top: 220px;
+    background: #FFFFFF;
+    border: 1px solid #01A11A;
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: #828181;
+}
+
+.btn-login {
+    position: absolute;
+    width: 225px;
+    height: 30px;
+    left: 100px;
+    top: 290px;
+    background: #4AA569;
+    color: #FFFFFF;
+}
+
+.btn-login:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-login:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.div-noaccount {
+    position: absolute;
+    width: 250px;
+    height: 13px;
+    left: 85px;
+    top: 350px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 14px;
+    text-align: center;
+    color: #4AA569;
+}
+
+.div-forgotpsw {
+    position: absolute;
+    width: 250px;
+    height: 13px;
+    left: 85px;
+    top: 400px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 14px;
+    text-align: center;
+    color: #4AA569;
+}
+
+.escudo-aquia-reg {
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    left: 480px;
+    top: 160px;
+    transform: scale(1.5);
+    background: url('/images/aquia.jpg');
+}
+
+.div-forgotpsw-empleado {
+    position: absolute;
+    width: 250px;
+    height: 13px;
+    left: 85px;
+    top: 350px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 14px;
+    text-align: center;
+    color: #4AA569;
+}
+
+.menuTop {
+    position: absolute;
+    width: 1932px;
+    height: 61px;
+    left: 0px;
+    top: 0px;
+}
+
+.background-img {
+    background-image: url('../images/background-aquia.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(78, 77, 77, 0.6);
+}
+
+#subtitulo {
+    position: absolute;
+    width: 375px;
+    height: 26px;
+    left: 70px;
+    top: 150px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    color: #4AA569;
+}
+
+.fondoMenu {
+    position: absolute;
+    width: 1932px;
+    height: 61px;
+    left: 220px;
+    top: 0px;
+    background: rgba(165, 183, 77, 0.8);
+}
+
+.tituloMenu {
+    position: absolute;
+    width: 361px;
+    height: 28px;
+    left: 45px;
+    top: 22px;
+    font-family: Font Awesome 5 Free;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.barraLateral {
+    position: absolute;
+    width: 260px;
+    height: 1080px;
+    left: 0px;
+    top: 0px;
+    background: #4AAA56;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tituloBarraLateral {
+    position: absolute;
+    width: 63px;
+    height: 28px;
+    left: 99px;
+    top: 22px;
+    font-family: Font Awesome 5 Free;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.nombreUsuario {
+    position: absolute;
+    width: 97px;
+    height: 16px;
+    left: 82px;
+    top: 214px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.searchPerfil {
+    position: absolute;
+    width: 240px;
+    height: 41px;
+    left: 10px;
+    top: 321px;
+    position: absolute;
+    width: 220px;
+    height: 25px;
+    left: 18px;
+    top: 335px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #0a0a0a;
+}
+
+.divTramites {
+    position: absolute;
+    width: 260px;
+    height: 41px;
+    left: 0px;
+    top: 377px;
+    background: #A5B74D;
+    position: absolute;
+    width: 260px;
+    height: 35px;
+    left: 0px;
+    top: 391px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.divGenerarTramite {
+    position: absolute;
+    width: 260px;
+    height: 41px;
+    left: 10px;
+    top: 433px;
+    background: #4AAA56;
+    border-radius: 4px;
+    position: absolute;
+    width: 260px;
+    height: 35px;
+    left: 0px;
+    top: 450px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.divVerPerfil {
+    position: absolute;
+    width: 240px;
+    height: 41px;
+    left: 10px;
+    top: 509px;
+    background: #4AAA56;
+    border-radius: 4px;
+    position: absolute;
+    width: 184.76px;
+    height: 13px;
+    left: 38px;
+    top: 503px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.divSalir {
+    position: absolute;
+    width: 240px;
+    height: 41px;
+    left: 10px;
+    top: 554px;
+    background: #4AAA56;
+    border-radius: 4px;
+    position: absolute;
+    width: 184.76px;
+    height: 13px;
+    left: 38px;
+    top: 559px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.msjBienvenida {
+    position: absolute;
+    width: 420px;
+    height: 153px;
+    left: 285px;
+    top: 100px;
+    background: #EFEEEE;
+    border-radius: 5px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    left: 300px;
+    top: 125px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    line-height: 16px;
+    color: #000000;
+}
+
+.divCrearTramite {
+    position: absolute;
+    width: 420px;
+    height: 153px;
+    left: 1400px;
+    top: 125px;
+    background: #EFEEEE;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.btnCrearTramite {
+    position: absolute;
+    width: 226px;
+    height: 34px;
+    left: 100px;
+    top: 100px;
+    background: #4AAA56;
+    border-radius: 6px;
+}
+
+.divBandeja {
+    position: absolute;
+    width: 1535px;
+    height: 264px;
+    left: 285px;
+    top: 362px;
+    background: #C4C4C4;
+    border-radius: 6px;
+}
+
+.tituloBandeja {
+    position: absolute;
+    width: 1535px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    background: #4AA569;
+    border-radius: 6px 6px 0px 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.tablaTramites {
+    width: 1535px;
+    height: 70px;
+    left: 30px;
+    top: 160px;
+    background: #494242;
+}
+
+th {
+    width: 1535px;
+    height: 85px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #494242;
+}
+
+tr {
+    width: 1535px;
+    height: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #6C6A6A;
+}
+
+.divEditar {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    left: 329px;
+    top: 96px;
+    background: #F3F3F3;
+    border-radius: 20px;
+}
+
+.textEditar {
+    position: absolute;
+    width: 297px;
+    height: 28px;
+    left: 10px;
+    top: 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    color: #4AA569;
+}
+
+.textHome01 {
+    position: absolute;
+    width: 258px;
+    height: 14px;
+    left: 30px;
+    top: 103px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+}
+
+.inputHome01 {
+    position: absolute;
+    width: 253px;
+    height: 40px;
+    left: 30px;
+    top: 130px;
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.textHome02 {
+    position: absolute;
+    width: 258px;
+    height: 14px;
+    left: 250px;
+    top: 103px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+}
+
+.inputHome02 {
+    position: absolute;
+    width: 253px;
+    height: 40px;
+    left: 355px;
+    top: 130px;
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.textHome03 {
+    position: absolute;
+    width: 258px;
+    height: 14px;
+    left: 600px;
+    top: 103px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+}
+
+.inputHome03 {
+    position: absolute;
+    width: 253px;
+    height: 40px;
+    left: 685px;
+    top: 130px;
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.textHome04 {
+    position: absolute;
+    width: 258px;
+    height: 14px;
+    left: -50px;
+    top: 203px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+}
+
+.inputHome04 {
+    position: absolute;
+    width: 253px;
+    height: 40px;
+    left: 30px;
+    top: 230px;
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.textHome05 {
+    position: absolute;
+    width: 258px;
+    height: 14px;
+    left: 250px;
+    top: 203px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+}
+
+.inputHome05 {
+    position: absolute;
+    width: 253px;
+    height: 40px;
+    left: 355px;
+    top: 230px;
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.textHome06 {
+    position: absolute;
+    width: 258px;
+    height: 14px;
+    left: 610px;
+    top: 203px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+}
+
+.inputHome06 {
+    position: absolute;
+    width: 253px;
+    height: 40px;
+    left: 685px;
+    top: 230px;
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.textHome07 {
+    position: absolute;
+    width: 258px;
+    height: 14px;
+    left: -70px;
+    top: 303px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+}
+
+.inputHome07 {
+    position: absolute;
+    width: 910px;
+    height: 40px;
+    left: 30px;
+    top: 330px;
+    background: rgba(196, 196, 196, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.infoPerfil {
+    position: absolute;
+    width: 476px;
+    height: 700px;
+    left: 1050px;
+    top: 0px;
+    background: #C4C4C4;
+    border-radius: 20px 20px 0px
+}
+
+.textNombre {
+    position: absolute;
+    width: 93px;
+    height: 16px;
+    left: 190px;
+    top: 250px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.textApellidos {
+    position: absolute;
+    width: 93px;
+    height: 16px;
+    left: 190px;
+    top: 300px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.textDNI {
+    position: absolute;
+    width: 93px;
+    height: 16px;
+    left: 190px;
+    top: 350px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.textDireccion {
+    position: absolute;
+    width: 93px;
+    height: 16px;
+    left: 190px;
+    top: 400px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.btnActualizar {
+    position: absolute;
+    width: 295px;
+    height: 57px;
+    left: 650px;
+    top: 420px;
+    background: #4AA569;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+/* homeIcons */
+.iconosHomeMuni{
+    font-size: 8rem;
+}
+.select-bg:hover select, option{
+    background-color: #3C4858;
+}
+/* Ocultar form*/
+.soloTest{
+    background-color: #000000;
+}
+.modal-backdrop.in{
+    opacity:0.5;
+}

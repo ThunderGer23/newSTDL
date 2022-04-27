@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs justify-content-center" id="navId" role="tablist">
+            
+            <li class="nav-item">
+                <a href="/emp/gentramite" class="nav-link mx-1 btn btn-primary">Nuevo Documento</a>
+            </li>
+            <li class="nav-item " >
+                <button href="#" class="nav-link mx-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#derivarDoc">Derivar</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button href="#tab5Id" class="nav-link mx-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminarDerivacion">Eliminar derivación</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button href="#" class="nav-link mx-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#adjuntarDocumento">Adjuntar</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button href="#" class="nav-link mx-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#archivarDocumento">Archivar</button>
+            </li>
+            <form action="" method="" id="" encType="multipart/form-data" class="navbar-form ml-4">
+                <div class="input-group no-border">
+                    <input type="text" value="" class="form-control form-control-dark" placeholder="Buscar..."></input>
+                    <button type="submit" value="" class="btn btn-primary btn-default btn-round btn-just-icon">
+                        <div class="ripple-container"></div>
+                        <i class="fa-solid fa-magnifying-glass bx bx-search-alt align-middle"></i>
+                    </button>
+                </div>
+            </form>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
+        </div>
+
+        <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
+        <script>
+            var triggerEl = document.querySelector('#navId a')
+            bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+        </script>
+
+    </div>
+</div>

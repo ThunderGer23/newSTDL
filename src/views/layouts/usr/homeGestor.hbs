@@ -1,0 +1,197 @@
+<!-- <body data-layout="horizontal"> -->
+<!-- Begin page -->
+<div id="layout-wrapper">
+    {{>header}}
+    {{>sidebar}}
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">BANDEJA DE TRÁMITES REALIZADOS</h4>
+                                <p class="card-category"> Aquí se muestran todos los trámites realizados</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                  <form action="/user" method="post" ref="" id="" encType="multipart/form-data">
+                                    <table class="table table-hover">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                N° de expediente
+                                            </th>
+                                            <th>
+                                                Fecha
+                                            </th>
+                                            <th>
+                                                Hora
+                                            </th>
+                                            <th>
+                                                Documento
+                                            </th>
+                                            <th>
+                                                Asunto
+                                            </th>
+                                            <th>Folios</th>
+                                            <th>Estado</th>
+                                            <th>Adjunto</th>
+                                            <th>Acciones</th>
+                                        </thead>
+                                        <tbody>
+                                          {{#each rows}}
+                                            <tr>
+                                                <td>
+                                                  {{num_doc}}
+                                                </td>
+                                                <td>
+                                                    {{fecha}}
+                                                </td>
+                                                <td>
+                                                    {{hora}}
+                                                </td>
+                                                <td>
+                                                    {{nombre_doc}}
+                                                </td>
+                                                <td>
+                                                    {{nombre_Tramite}}
+                                                </td>
+                                                <td>
+                                                    {{numero_hojas}}
+                                                </td>
+                                                <td>
+                                                    <input name="" id="" class="btn btn-danger btn-sm" href="#"
+                                                        type="submit" value="{{estado}}" role="button"/>
+                                                </td>
+                                                <td>
+                                                    <a href="#"><span class="material-icons">
+                                                        picture_as_pdf
+                                                    </span></a>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                        <input type="submit" name="" id="" class="btn btn-warning " href="#" value="Eliminar" role="button"/>
+                                                        <input type="sumbit" name="" id="" class="btn btn-success" href="#" role="button" value="Ver ruta"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                          {{/each}}
+                                        </tbody>
+                                    </table>
+                                  </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <!-- card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Trámites realizados</h4>
+                                        <p class="card-title-desc">En esta sección encontraras todos los trámites realizados.
+                                        </p>
+                            </div>
+                            <!-- card body -->
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="table-responsive">
+                                        <form action="/user" method="post" ref="" id="" encType="multipart/form-data">
+                                            <table id="tramites" class="table table-hover table-bordered dt-responsive  nowrap w-100">
+                                                <thead class=" text-primary">
+                                                    <th>
+                                                        N° de expediente
+                                                    </th>
+                                                    <th>
+                                                        Fecha
+                                                    </th>
+                                                    <th>
+                                                        Hora
+                                                    </th>
+                                                    <th>
+                                                        Documento
+                                                    </th>
+                                                    <th>
+                                                        Asunto
+                                                    </th>
+                                                    <th>Folios</th>
+                                                    <th>Estado</th>
+                                                    <th>Adjunto</th>
+                                                    <th>Acciones</th>
+                                                </thead>
+                                                <tbody>
+                                                    {{#each rows}}
+                                                    <tr>
+                                                        <td>
+                                                            {{num_doc}}
+                                                        </td>
+                                                        <td>
+                                                            {{fecha}}
+                                                        </td>
+                                                        <td>
+                                                            00:00
+                                                        </td>
+                                                        <td>
+                                                            {{nombre}}
+                                                        </td>
+                                                        <td>
+                                                            {{nombre_Tramite}}
+                                                        </td>
+                                                        <td>
+                                                            {{numero_hojas}}
+                                                        </td>
+                                                        <td>
+                                                            <input name="" id="" class="btn btn-danger btn-sm" href="#"
+                                                                type="submit" value="{{estado}}" role="button" />
+                                                        </td>
+                                                        <td>
+                                                            <a href="#"><span class="material-icons">
+                                                                    picture_as_pdf
+                                                                </span></a>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group btn-group-sm" role="group"
+                                                                aria-label="Basic example">
+                                                                <input type="submit" name="" id=""
+                                                                    class="btn btn-warning " href="#" value="Eliminar"
+                                                                    role="button" />
+                                                                <input type="sumbit" name="" id=""
+                                                                    class="btn btn-success" href="#" role="button"
+                                                                    value="Ver ruta" />
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                            </div><!-- end card body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div>
+                <!-- end row-->
+            </div>
+            <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+
+
+        {{>footer}}
+    </div>
+    <!-- end main content-->
+</div>
+<!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->

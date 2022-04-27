@@ -1,0 +1,193 @@
+<!-- <body data-layout="horizontal"> -->
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+
+
+    {{>headeremp}}
+
+    <!-- ========== Left Sidebar Start ========== -->
+    {{>sidebaremp}}
+    <!-- Left Sidebar End -->
+
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                {{>pagetitle}}
+                <!-- end page title -->
+                <div class="row">
+                    <div class="col">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs justify-content-center" id="navId" role="tablist">
+
+                            <li class="nav-item ">
+                                <button class="btn btn-primary mx-4 mb-4" data-bs-toggle="modal"
+                                    data-bs-target="#devolverEnProceso" data-bs-whatever="@mdo">Devolver a EN
+                                    PROCESO</button>
+                            </li>
+                            <form action="" method="" ref="" id="" encType="multipart/form-data" class="navbar-form">
+                                <div class="input-group no-border">
+                                    <input type="text" value="" class="form-control" placeholder="Buscar..."></input>
+                                    <button class="btn btn-primary" type="button">
+                                        <i data-feather="search"
+                                            class="fa-solid fa-magnifying-glass bx bx-search-alt align-middle"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
+                            <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+                            <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+                            <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+                            <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
+                        </div>
+
+                        <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
+                        <script>
+                            var triggerEl = document.querySelector('#navId a')
+                            bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+                        </script>
+
+                    </div>
+                </div>
+                {{!-- content table --}}
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-sm table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><input type="checkbox"></th>
+                                    <th scope="col">Registro</th>
+                                    <th scope="col">Adjuntado a</th>
+                                    <th scope="col">Archivador</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Siglas</th>
+                                    <th scope="col">Dependencia</th>
+                                    <th scope="col">Detalle</th>
+                                    <th scope="col">Firma</th>
+                                    <th scope="col">Cargo</th>
+                                    <th scope="col">Asunto</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Usuario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>0004</td>
+                                    <td>0015</td>
+                                    <td>2022/Documentos recibidos</td>
+                                    <td>Informe</td>
+                                    <td>005</td>
+                                    <td>MDA-PB</td>
+                                    <td>Unidad de Informatica</td>
+                                    <td></td>
+                                    <td>Ing. Miguel Ángel Sancarrando Lazo</td>
+                                    <td>Especialista</td>
+                                    <td>Solicita trámite respectivo</td>
+                                    <td>22/02/2022</td>
+                                    <td>12:00:25</td>
+                                    <td>Laurita</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>0004</td>
+                                    <td>00245</td>
+                                    <td>2022/Documentos recibidos</td>
+                                    <td>Informe</td>
+                                    <td>005</td>
+                                    <td>MDA-PB</td>
+                                    <td>Unidad de Informatica</td>
+                                    <td></td>
+                                    <td>Ing. Miguel Ángel Sancarrando Lazo</td>
+                                    <td>Especialista</td>
+                                    <td>Solicita trámite respectivo</td>
+                                    <td>22/02/2022</td>
+                                    <td>12:00:25</td>
+                                    <td>ZulmaPal</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>0004</td>
+                                    <td>00548</td>
+                                    <td>2022/Documentos recibidos</td>
+                                    <td>Informe</td>
+                                    <td>005</td>
+                                    <td>MDA-PB</td>
+                                    <td>Unidad de Informatica</td>
+                                    <td></td>
+                                    <td>Ing. Miguel Ángel Sancarrando Lazo</td>
+                                    <td>Especialista</td>
+                                    <td>Solicita trámite respectivo</td>
+                                    <td>22/02/2022</td>
+                                    <td>12:00:25</td>
+                                    <td>Cosito</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>0004</td>
+                                    <td></td>
+                                    <td>2022/Documentos recibidos</td>
+                                    <td>Informe</td>
+                                    <td>005</td>
+                                    <td>MDA-PB</td>
+                                    <td>Unidad de Informatica</td>
+                                    <td></td>
+                                    <td>Ing. Miguel Ángel Sancarrando Lazo</td>
+                                    <td>Especialista</td>
+                                    <td>Solicita trámite respectivo</td>
+                                    <td>22/02/2022</td>
+                                    <td>12:00:25</td>
+                                    <td>Cosito</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+        {{>footer}}
+    </div>
+    <!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+{{!-- end code --}}
+<!-- Devolver a en proceso -->
+<div class="modal fade text-dark" id="devolverEnProceso" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Devolver a EN PROCESO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estas seguro de devoler este(os) registro(s) marcados al estado EN PROCESO?
+            </div>
+            <form action="" method="post">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
