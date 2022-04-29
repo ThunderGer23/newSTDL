@@ -13,6 +13,10 @@ router.get('/registro', (req, res) => {
     res.render('layouts/usr/registroGestor.hbs');
 });
 
+router.get('/userperfil', (req, res) => {
+    res.render('layouts/usr/homeGestorPerfil.hbs');
+});
+
 router.get('/contrasena', (req, res) => {
     res.render('layouts/usr/olvideMiContrasena.hbs');
 });

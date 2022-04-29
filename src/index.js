@@ -2,11 +2,17 @@
 const express = require('express');
 const morgan = require('morgan');
 const {engine} = require('express-handlebars');
-
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session');
+const passport = require('passport');
+const {database} = require('./keys');
 const path = require('path');
+
 //Initializations
 const app = express();
+require('./lib/passport');
 app.set('views', path.join(__dirname, 'views'));
+
 //Settings
 app.set('port', process.env.PORT || 4000);
 app.engine('hbs', engine({
@@ -19,9 +25,17 @@ app.engine('hbs', engine({
 app.set('view engine', '.hbs');
 
 //Middlewares
+app.use(session({
+    secret: 'ThunderGers',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+}));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Global Variables
 app.use((req, res, next) =>{
