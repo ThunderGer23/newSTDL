@@ -18,14 +18,6 @@ router.get('/forgotpass', (req, res) => {
     res.render('layouts/usr/olvideMiContrasena.hbs');
 });
 
-router.get('/user', async(req, res) => {
-    console.log("DNI: "+req.user[0].DNI);
-    const query = `SELECT * FROM bandejaTramitesRealizados WHERE id_Usuario=${req.user[0].DNI};`;
-    console.log(query);
-    const rows = pool.query(query);
-    res.render('layouts/usr/homeGestor.hbs',{rows});
-});
-
 router.get('/userperfil', (req, res) => {
     res.render('layouts/usr/homeGestorPerfil.hbs');
 });
@@ -38,8 +30,9 @@ router.get('/contrasena', (req, res) => {
     res.render('layouts/usr/olvideMiContrasena.hbs');
 });
 
-router.get('/tramites', (req, res) => {
-  res.render('layouts/usr/bandejaTramitesRealizados.hbs');
+router.get('/tramites', async(req, res) => {
+  const rows = await pool.query(`SELECT * FROM bandejaTramitesRealizados WHERE id_Usuario=${req.user[0].DNI};`);
+  res.render('layouts/usr/bandejaTramitesRealizados.hbs',{rows});
 });
 
 router.get('/about', (req,res)=>{
@@ -56,7 +49,7 @@ router.get('/faq', (req,res)=>{
 
 //all here is code for routes post
 
-router.post('/gentramite', (req, res) => {
+router.post('/gentramite', async(req, res) => {
   try{
     if (!req.files) {
       return res.status(400).send("No files were uploaded.");
@@ -145,10 +138,6 @@ router.post('/contrasena', (req, res) => {
 });
 
 router.post('/forgotpass', (req, res) => {
-    console.log(req.body);
-});
-
-router.post('/user', (req, res) => {
     console.log(req.body);
 });
 

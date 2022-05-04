@@ -53,14 +53,61 @@ passport.use('local.signin', new LocalStrategy({
     }
 }));
 
+//SUPERADMIN
+
+passport.use('local.signinSA', new LocalStrategy({
+    usernameField: 'usuario',
+    passwordField: 'contrasena',
+    passReqToCallback: true
+}, async(req, usuario, contrasena, done) => {
+    const usr = usuario
+    try {
+      const query = `SELECT * FROM superadmin WHERE nombre_usuario = "${usr}"`;
+      console.log(query);
+      const rows = await pool.query(query);
+      if (rows.length > 0) {
+        const sa = rows[0];
+        const validpassword = await helpers.matchPassword(contrasena, sa.contrasena);
+        if(validpassword){
+          done(null,sa);
+        }else{
+          console.log('Contraseña incorrecta');
+          done(null,false);
+        }
+      }else{
+        console.log('Usuario incorrecto');
+        return done(null,false);
+      }
+    }catch (err){
+      console.log(err);
+    }
+}));
+
+passport.use('local.signupSA', new LocalStrategy({
+    usernameField: 'usuario',
+    passwordField: 'contrasena',
+    session: false,
+    passReqToCallback: false
+}, async(usuario, contrasena, done) =>{
+    const superAdmin = {
+        nombre_usuario: usuario.toString(),
+        contrasena,
+    }
+    superAdmin.contrasena = await helpers.encryptPassword(contrasena)
+    const rows = await pool.query('INSERT INTO superadmin set ?', [superAdmin]);
+    return done(null, usuario);
+}));
+
+//EMPLEADO
+
 passport.serializeUser((user, done) => {
     done(null, user);
 });
 
 passport.deserializeUser(async(DNI, done) => {
-    const result = await pool.query(`SELECT * FROM usuario WHERE DNI = ${DNI.DNI}`);    
+    const result = await pool.query(`SELECT * FROM usuario WHERE DNI = "${DNI.DNI}"`);
 
-    const result1 = await pool.query(`SELECT * FROM gestor WHERE DNI = ${DNI.DNI}`);
+    const result1 = await pool.query(`SELECT * FROM gestor WHERE DNI = "${DNI.DNI}"`);
 
     const result2 = await pool.query(`SELECT * FROM superadmin WHERE nombre_usuario = "${DNI.nombre_usuario}"`);
 

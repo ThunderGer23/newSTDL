@@ -53,8 +53,8 @@ app.use((req, res, next) =>{
 //Routes
 app.use(require('./routes'));
 app.use(require('./routes/authentication'));
-app.use('emp',require('./routes/emp'));
-app.use('sa',require('./routes/sa'));
+app.use('/emp',require('./routes/emp'));
+app.use('/sa',require('./routes/sa'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));

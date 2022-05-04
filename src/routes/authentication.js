@@ -17,6 +17,20 @@ router.post('/', async(req, res, next) => {
     })(req, res, next);
 });
 
+router.post('/logSA', async(req, res, next) => {
+    passport.authenticate('local.signinSA', {
+        successRedirect: '/admin/homeadmin',
+        failureRedirect: '/admin/',
+        failureFlash:true
+    })(req, res, next);
+})
+
+router.post('/registroSA', passport.authenticate('local.signupSA', {
+    successRedirect: '/admin/',
+    failureRedirect: '/admin/registrarSA',
+    failureFlash:true
+}));
+
 router.post('/logout',(req, res) => {
     req.logOut();
     res.redirect('/');
