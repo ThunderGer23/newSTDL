@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const morgan = require('morgan');
 const {engine} = require('express-handlebars');
 const session = require('express-session');
@@ -31,6 +32,7 @@ app.use(session({
     saveUninitialized: false,
     store: new MySQLStore(database)
 }));
+app.use(fileUpload());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
