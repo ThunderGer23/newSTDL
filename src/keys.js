@@ -5,5 +5,12 @@ module.exports = {
         user: 'uqcppcnotsrykoxu',
         password: 'KQoNc3pkLBtvoDKuDw0e',
         port:'3306',        
+    },
+    remotedatabase: {
+        host: 'containers-us-west-38.railway.app',
+        database: 'railway',
+        user: 'root',
+        password: '0PkBJttiulXdJIZimKak',
+        port: '6425'
     }
 }
