@@ -63,7 +63,6 @@ passport.use('local.signinSA', new LocalStrategy({
     const usr = usuario
     try {
       const query = `SELECT * FROM superadmin WHERE nombre_usuario = "${usr}"`;
-      console.log(query);
       const rows = await pool.query(query);
       if (rows.length > 0) {
         const sa = rows[0];
@@ -89,6 +88,7 @@ passport.use('local.signupSA', new LocalStrategy({
     session: false,
     passReqToCallback: false
 }, async(usuario, contrasena, done) =>{
+    console.log(`usuario:${usuario}\ncontrasena:${contrasena}\n`);
     const superAdmin = {
         nombre_usuario: usuario.toString(),
         contrasena,
