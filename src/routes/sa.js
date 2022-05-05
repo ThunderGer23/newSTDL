@@ -8,16 +8,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/homeadmin', (req, res) => {
-    res.render('layouts/sa/home.hbs',req.user[0]);
+    res.render('layouts/sa/home.hbs', {user});
 });
 
 router.get('/registrarSA', (req, res) => {
     res.render('layouts/sa/registrar-sa.hbs');
 });
-
-/*router.post('/registrarSA', (req, res) => {
-    res.render('layouts/sa/registrar-sa.hbs');
-});*/
 
 router.get('/registraremp', (req, res) => {
     res.render('layouts/sa/registroEmpleado.hbs');

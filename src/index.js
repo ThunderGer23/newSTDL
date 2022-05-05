@@ -44,7 +44,6 @@ app.use((req, res, next) =>{
     next();
     if (!app.locals.user) {
         if (req.user) {
-            console.log(req.user[0]);
             app.locals.user = req.user[0];
         }
     }

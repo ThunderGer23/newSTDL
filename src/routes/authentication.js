@@ -19,15 +19,15 @@ router.post('/', async(req, res, next) => {
 
 router.post('/logSA', async(req, res, next) => {
     passport.authenticate('local.signinSA', {
-        successRedirect: '/admin/homeadmin',
-        failureRedirect: '/admin/',
+        successRedirect: '/sa/homeadmin',
+        failureRedirect: '/sa/',
         failureFlash:true
     })(req, res, next);
 })
 
 router.post('/registrarSA', passport.authenticate('local.signupSA', {
     successRedirect: '/sa/homeadmin',
-    failureRedirect: '/sa/registrarSA',
+    failureRedirect: '/registrarSA',
     failureFlash:true
 }));
 
