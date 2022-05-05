@@ -87,8 +87,7 @@ passport.use('local.signupSA', new LocalStrategy({
     passwordField: 'contrasena',
     session: false,
     passReqToCallback: false
-}, async(usuario, contrasena, done) =>{
-    console.log(`usuario:${usuario}\ncontrasena:${contrasena}\n`);
+}, async(usuario, contrasena, done) =>{    
     const superAdmin = {
         nombre_usuario: usuario.toString(),
         contrasena,
