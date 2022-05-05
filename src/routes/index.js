@@ -121,7 +121,6 @@ router.post('/gentramite', async(req, res) => {
       id_derivar_a:null
     };
     const result3 = await pool.query('INSERT INTO tramite SET ?',[tramite]);
-    console.log("RESULT TRAMITE: ",result3);
     const doc_ente = {
       id_Documento:result.insertId,
       id_Ente:result2.insertId
@@ -134,19 +133,15 @@ router.post('/gentramite', async(req, res) => {
 });
 
 router.post('/contrasena', (req, res) => {
-    console.log(req.body);
 });
 
 router.post('/forgotpass', (req, res) => {
-    console.log(req.body);
 });
 
 router.post('/userperfil', (req, res) => {
-    console.log(req.body);
 });
 
 router.post('/tramites', (req, res) => {
-    console.log(req.body);
 });
 
 module.exports = router;
