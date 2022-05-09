@@ -7,6 +7,10 @@ router.get('/logemp', (req, res) => {
     res.render('layouts/emp/logInEmpleado.hbs');
 });
 
+router.get('/userperfil', (req, res) => {
+    res.render('layouts/emp/empPerfil.hbs');
+});
+
 router.get('/tramites', async (req, res) => {
     const result = await pool.query(`SELECT * FROM bandejaTramitesRealizados;`);
 

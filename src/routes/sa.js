@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/homeadmin', (req, res) => {
-    res.render('layouts/sa/home.hbs', {user});
+    res.render('layouts/sa/home.hbs');
 });
 
 router.get('/registrarSA', (req, res) => {
@@ -35,4 +35,4 @@ router.get('/gestionar-cargo', (req, res) => {
     res.render('layouts/superadmin/gestionCargo.hbs');
 });
 
-module.exports = router
+module.exports = router;

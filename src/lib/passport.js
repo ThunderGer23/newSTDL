@@ -99,6 +99,57 @@ passport.use('local.signupSA', new LocalStrategy({
 
 //EMPLEADO
 
+passport.use('local.signinemp', new LocalStrategy({
+    usernameField: 'DNI',
+    passwordField: 'password',
+    passReqToCallback: false
+}, async(DNI, password, done) => {
+    const rows = await pool.query('SELECT * FROM gestor WHERE DNI = ?', [DNI]);
+    if (rows.length > 0) {
+        const user = rows[0];
+        const validpassword = await helpers.matchPassword(password, user.contrasena);
+        if(validpassword){
+            done(null,user)
+        }else{
+            console.log('Contraseña incorrecta');
+            done(null,false);
+        }
+    }else{
+        console.log('Usuario incorrecto');
+        return done(null,false);
+    }
+}));
+
+passport.use('local.signupemp', new LocalStrategy({
+    usernameField: 'DNI',
+    passwordField: 'contrasena',
+    session: false,
+    passReqToCallback: true
+}, async(req, DNI, contrasena, done) =>{
+    const {correo, id_Dept, nombre, apellido_paterno, apellido_materno} = req.body;    
+
+    RUTA = `https://apistdl.herokuapp.com/dates?DNI=${DNI}`
+    let empleado;
+    try{
+        const res = await axios.get(RUTA);                
+        if (res != null) {
+            empleado = {DNI};
+            empleado.correo = correo;
+            empleado.contrasena = await helpers.encryptPassword(contrasena);            
+            empleado.id_Depto = id_Dept[1];                                   
+            empleado.nombre = res.data.nombres;                
+            empleado.apellido_paterno = res.data.apellidoPaterno;                    
+            empleado.apellido_materno = res.data.apellidoMaterno;                        
+            const rows = await pool.query('INSERT INTO gestor set ?', [empleado]);
+            return done(null, DNI);
+        }else{
+            console.log("Aquí hay que pintar los campos de nombres para el empleado");
+        }
+    }catch (err) {
+        console.log(err);
+    }
+}));
+
 passport.serializeUser((user, done) => {
     done(null, user);
 });

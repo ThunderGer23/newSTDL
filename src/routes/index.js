@@ -18,8 +18,8 @@ router.get('/forgotpass', (req, res) => {
     res.render('layouts/usr/olvideMiContrasena.hbs');
 });
 
-router.get('/userperfil', (req, res) => {
-    res.render('layouts/usr/homeGestorPerfil.hbs');
+router.get('/userperfil', (req, res) => {  
+  res.render('layouts/usr/homeGestorPerfil.hbs');
 });
 
 router.get('/gentramite', (req, res) => {
