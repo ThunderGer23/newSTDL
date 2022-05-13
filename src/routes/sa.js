@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/homeadmin', (req, res) => {
-    res.render('layouts/sa/home.hbs', {user});
+    res.render('layouts/sa/home.hbs');
 });
 
 router.get('/registrarSA', (req, res) => {
@@ -27,7 +27,7 @@ router.post('/gestA', async (req, res) => {
     const depto = {
         nombre: req.body.nombre
     };
-    query = await pool.query('INSERT INTO departamento SET ?',[depto]);
+    const query = await pool.query('INSERT INTO departamento SET ?',[depto]);
     res.render('layouts/sa/gestionAreas.hbs');
 });
 
@@ -35,4 +35,4 @@ router.get('/gestionar-cargo', (req, res) => {
     res.render('layouts/superadmin/gestionCargo.hbs');
 });
 
-module.exports = router
+module.exports = router;
