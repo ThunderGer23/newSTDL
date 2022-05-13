@@ -27,7 +27,7 @@ router.post('/gestA', async (req, res) => {
     const depto = {
         nombre: req.body.nombre
     };
-    query = await pool.query('INSERT INTO departamento SET ?',[depto]);
+    const query = await pool.query('INSERT INTO departamento SET ?',[depto]);
     res.render('layouts/sa/gestionAreas.hbs');
 });
 
