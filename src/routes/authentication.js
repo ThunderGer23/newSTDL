@@ -31,7 +31,7 @@ router.post('/registrarSA', passport.authenticate('local.signupSA', {
     failureFlash:true
 }));
 
-router.post('/emp/logemp', async(req, res, next) => {
+router.post('/logemp', async(req, res, next) => {
     passport.authenticate('local.signinemp',{
         successRedirect: '/emp/municipal',
         failureRedirect: '/emp/logemp',
