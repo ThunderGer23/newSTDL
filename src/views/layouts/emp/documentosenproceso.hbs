@@ -92,18 +92,18 @@
                                 <form method="post">
                                     <div class="mb-3">
                                         <label for="">Registros que sera derivados</label><br>
-                                        <input class="form-input" disabled type="text" value="0057"><br>
-                                        <input class="form-input" disabled type="text" value="0053"><br>
-                                        <input class="form-input" disabled type="text" value="0078">
+                                        <input class="form-input" name="derivarregistros" id="0057" disabled type="text" value="0057"><br>
+                                        <input class="form-input" name="derivarregistros" id="0053" disabled type="text" value="0053"><br>
+                                        <input class="form-input" name="derivarregistros" id="0078" disabled type="text" value="0078">
                                     </div>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="">Oficina:</label>
-                                        <input type="text" id="oficina-name" placeholder="Gerencia" disabled>
+                                        <input type="text" name="oficima-name" id="oficina-name" placeholder="Gerencia" disabled>
 
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating">
-                                            <select class="form-select" id="floatingSelect"
+                                            <select class="form-select" name="selectusuario" id="selectusuario"
                                                 aria-label="Floating label select example">
                                                 <option selected>Selecciona un usuario</option>
                                                 <option value="1">Roberto</option>
@@ -117,13 +117,13 @@
                                         <div class="form-floating">
                                             <textarea class="form-control text-dark"
                                                 placeholder="Por ejemplo 'Para su conocimiento'"
-                                                id="floatingTextarea"></textarea>
+                                                name="acciones" id="acciones"></textarea>
                                             <label for="floatingTextarea">Acciones</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="message-text" class="">Adjuntar doc. Físicos:</label>
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="adjuntardocumentos">
 
                                     </div>
                                     <div class="modal-footer">
@@ -172,22 +172,21 @@
                             <form>
                                 <div class="mb-3">
                                     <div class="form-floating">
-                                        <select class="form-select" id="floatingSelect"
-                                            aria-label="Floating label select example">
+                                        <select class="form-select" id="adjuntardocumentos" name="adjuntardocumentos" aria-label="Floating label select example">
                                             <option selected>4-0</option>
                                             <option value="1">38</option>
                                             <option value="2">74</option>
                                             <option value="3">03</option>
                                         </select>
-                                        <label for="floatingSelect">Adjuntar al documento</label>
+                                        <label for="adjuntardocumentos">Adjuntar al documento</label>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-floating">
                                         <textarea class="form-control text-dark"
-                                            placeholder="Por ejemplo 'Para su conocimiento'"
-                                            id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Acciones</label>
+                                            placeholder="Por ejemplo 'Para su conocimiento'" name="accionesadjuntar"
+                                            id="accionesadjuntar"></textarea>
+                                        <label for="accionesadjuntar">Acciones</label>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -214,11 +213,11 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="">Registros que seran archivados</label>
-                                    <input type="text" placeholder="00078" disabled>
+                                    <input type="text" name="registrosparaarchivar" id="registrosparaarchivar" placeholder="00078" disabled>
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-floating">
-                                        <select class="form-select" id="floatingSelect"
+                                        <select class="form-select" id="archivador" name="archivador"
                                             aria-label="Floating label select example">
                                             <option selected>01</option>
                                             <option value="1">02</option>
@@ -230,9 +229,9 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-floating">
-                                        <textarea class="form-control text-dark"
+                                        <textarea class="form-control text-dark" name="accionesarchivador"
                                             placeholder="Por ejemplo 'Se comunico por correo o whatsapp'"
-                                            id="floatingTextarea"></textarea>
+                                            id="accionesarchivador"></textarea>
                                         <label for="floatingTextarea">Acciones</label>
                                     </div>
                                 </div>
