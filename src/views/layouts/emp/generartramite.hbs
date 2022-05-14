@@ -63,18 +63,18 @@
                                                     <div class="row mt-3">
                                                         <div class="col">
                                                             <label for="">Firma</label>
-                                                            <input class="form-control" name="firma" id="firma" type="text" placeholder=""
+                                                            <input class="form-control" name="firmaext" id="firmaext" type="text" placeholder=""
                                                                 required>
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Cargo</label>
-                                                            <input class="form-control" name="cargo" id="cargo" type="text" placeholder="">
+                                                            <input class="form-control" name="cargoext" id="cargoext" type="text" placeholder="">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col">
                                                             <label for="">Tipo de documento</label>
-                                                            <select class="form-control" name="tipodocumento" id="tipodocumento" required>
+                                                            <select class="form-control" name="tipodocumentoext" id="tipodocumentoext" required>
                                                                 <option selected>Carta</option>
                                                                 <option value="1">Oficio</option>
                                                                 <option value="2">Solicitud</option>
@@ -83,22 +83,22 @@
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Fecha del Documento</label>
-                                                            <input type="date" name="fechadocumento" id="fechadocumento" class="form-control">
+                                                            <input type="date" name="fechadocumentoext" id="fechadocumentoext" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col">
                                                             <label for="">Número</label>
-                                                            <input class="form-control" type="number" name="numero" id="numero"
+                                                            <input class="form-control" type="number" name="numeroext" id="numeroext"
                                                                 onkeypress="return isNumberKey(event)">
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Siglas</label>
-                                                            <input class="form-control" type="text" name="siglas" id="siglas">
+                                                            <input class="form-control" type="text" name="siglasext" id="siglasext">
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Folios</label>
-                                                            <input class="form-control" name="folios" id="folios" type="number" required
+                                                            <input class="form-control" name="foliosext" id="foliosext" type="number" required
                                                                 minlength="1" maxlength="8"
                                                                 onkeypress="return isNumberKey(event)">
                                                         </div>
@@ -106,18 +106,18 @@
                                                     <div class="row mt-3">
                                                         <div class="col">
                                                             <label for="">Asunto</label>
-                                                            <textarea class="form-control" name="asunto" id="asunto" cols="5"
+                                                            <textarea class="form-control" name="asuntoext" id="asuntoext" cols="5"
                                                                 rows="2"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col">
                                                             <label for="">Anexo/Detalle</label>
-                                                            <input class="form-control" type="text" name="anexodetalle" id="anexodetalle">
+                                                            <input class="form-control" type="text" name="anexodetalleext" id="anexodetalleext">
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Procedimiento TUPA</label>
-                                                            <select class="form-control" name="procedimientotupa" id="procedimientotupa">
+                                                            <select class="form-control" name="procedimientotupaext" id="procedimientotupaext">
                                                                 <option selected>Acceso a la información pública
                                                                 </option>
                                                                 <option selected>Acta de matrimonio</option>
@@ -143,15 +143,15 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <label for="">Fecha de registro</label>
-                                                            <input class="form-control" type="date" name="" id="">
+                                                            <input class="form-control" type="date" name="fecharegistroint" id="fecharegistroint">
                                                         </div>
                                                         <div class="col">
                                                             <label for="">N° de expediente</label>
-                                                            <input class="form-control" type="number">
+                                                            <input class="form-control" type="number" numexpedienteint>
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Oficina que registra</label>
-                                                            <select class="form-control" name="" id="" required>
+                                                            <select class="form-control" name="oficinaregistranteint" id="oficinaregistranteint" required>
                                                                 <option selected>Mesa de partes</option>
                                                                 <option value="1">Mesa de partes</option>
                                                                 <option value="2">Alcaldia</option>
@@ -162,7 +162,7 @@
                                                     <div class="row mt-3">
                                                         <div class="col">
                                                             <label for="">Para firma de: </label>
-                                                            <select class="form-control" name="" id="">
+                                                            <select class="form-control" name="parafirmaint" id="parafirmaint">
                                                                 <option selected="">Nombre del encargado del área
                                                                 </option>
                                                                 <option value="1">en caso de pertenecer a más áreas
@@ -171,13 +171,13 @@
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Otros vistos</label>
-                                                            <input class="form-control" type="text" name="" id="">
+                                                            <input class="form-control" type="text" name="otrosvistosint" id="otrosvistosint">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col">
                                                             <label for="">Tipo de destino</label>
-                                                            <select class="form-control" name="" id="">
+                                                            <select class="form-control" name="tipodestinoint" id="tipodestinoint">
                                                                 <option value="1">Interno [Jefe de oficina]</option>
                                                                 <option value="2">Interno [Trabajador]</option>
                                                                 <option value="3">Externo o editar destinatario</option>
@@ -185,29 +185,29 @@
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Destino(s)</label>
-                                                            <input class="form-control" type="text">
+                                                            <input class="form-control" type="text" name="destinoint" id="destinoint">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-3 mb-3">
                                                         <div class="col-md-2">
                                                             <label for="">Número</label>
-                                                            <input class="form-control" type="number">
+                                                            <input class="form-control" type="number" name="numeroint" id="numeroint">
                                                         </div>
                                                         <div class="col">
                                                             <label for="">Asunto:</label>
-                                                            <input class="form-control" type="text" name="" id="">
+                                                            <input class="form-control" type="text" name="asuntonint" id="asuntonint">
                                                         </div>
                                                     </div>
                                                     <div class="row mt-4 mb-4">
                                                         <div class="col">
                                                             <label for="">Referencia contextual</label>
-                                                            <input class="form-control" type="text">
+                                                            <input class="form-control" type="text" name="referenciacontextualint" id="referenciacontextualint">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3 mt-3">
                                                         <div class="col">
                                                             <label for="">Cuerpo</label>
-                                                            <textarea name="" id="miEditor" cols="30"
+                                                            <textarea name="cuerpoint" id="miEditor" cols="30"
                                                                 rows="10"></textarea>
                                                         </div>
                                                     </div>
