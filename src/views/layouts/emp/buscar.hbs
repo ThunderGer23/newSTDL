@@ -20,16 +20,16 @@
                                     <p class="card-title-desc">Seleccione la fecha.</p>
                                 </div>
                                 <div class="card-body">
-                                
+
                                         <div class="mb-4">
                                             <label class="form-label" for="fecha-desde-">Fecha desde</label>
-                                            <input class="form-control" type="date" id="fecha-desde">
+                                            <input class="form-control" type="date" name="start_date" id="fecha-desde">
                                         </div>
                                         <div class="mb-4">
                                             <label class="form-label" for="fecha-hasta">Fecha hasta</label>
-                                            <input class="form-control" type="date" id="fecha-hasta">
+                                            <input class="form-control" type="date" name="end_date" id="fecha-hasta">
                                         </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -43,18 +43,20 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <label for="">Orígen</label> &nbsp;&nbsp;
-                                        <span class="me-3">Interno</span><input type="radio">&nbsp;
-                                        <span class="me-3">Extermo</span><input type="radio">
+                                      <label for="">Orígen</label> &nbsp;&nbsp;
+                                      <input type="radio" id="interno" name="origen" value="Interno">
+                                      <label for="interno" class="">Interno</label>&nbsp;
+                                      <input type="radio" id="externo" name="origen" value="Externo">
+                                      <label for="externo" class="">Externo</label>
                                     </div>
 
                                     <div class="mb-4">
                                         <label for="">Dependencia</label>
-                                        <select name="" id="" class="form-control">
-                                            <option value="1">-----Todos------</option>
-                                            <option value="2">Gerencia</option>
-                                            <option value="3">Tesorería</option>
-                                            <option value="4">Secretaría</option>
+                                        <select name="dependencia" id="" class="form-control">
+                                            <option value="0">-----Todos------</option>
+                                            <option value="1">Gerencia</option>
+                                            <option value="2">Tesorería</option>
+                                            <option value="3">Secretaría</option>
                                         </select>
                                     </div>
 
@@ -86,16 +88,16 @@
                                             <div>
                                                 <div class="mb-3">
                                                     <label for="">Tipo de expediente</label>
-                                                    <select name="" id="" class="form-control">
-                                                        <option value="1">-----Todos------</option>
-                                                        <option value="2">Oficio</option>
-                                                        <option value="3">Carta</option>
-                                                        <option value="4">Memorandum</option>
+                                                    <select name="tipo_expediente" id="tipoexp" class="form-control">
+                                                        <option value="0">-----Todos------</option>
+                                                        <option value="1">Oficio</option>
+                                                        <option value="2">Carta</option>
+                                                        <option value="3">Memorandum</option>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="">Siglas</label>
-                                                    <input type="text" class="form-control">
+                                                    <input name="siglas" type="text" class="form-control">
                                                 </div>
 
                                             </div>
@@ -105,11 +107,11 @@
                                             <div class="mt-3 mt-lg-0">
                                                 <div class="mb-3">
                                                     <label for="">Número</label>
-                                                    <input type="number" class="form-control">
+                                                    <input name="numero" type="number" class="form-control">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="">Asunto</label>
-                                                    <input type="text" class="form-control">
+                                                    <input name="asunto" type="text" class="form-control">
                                                 </div>
 
                                             </div>
@@ -125,7 +127,7 @@
                 </form>
                 <!-- end row -->
                 {{!-- end row --}}
-            
+
 
             </div><!-- end col -->
         </div>
@@ -158,34 +160,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  {{#each rows}}
                                     <tr>
                                         <td><input type="checkbox"></td>
-                                        <td>sin</td>
-                                        <td>resultados</td>
-                                        <td>para</td>
-                                        <td>mostrar</td>
-                                        <td>intente</td>
-                                        <td>con</td>
-                                        <td>otra</td>
-                                        <td>busqueda</td>
-                                        <td>.</td>
+                                        <td>{{num_doc}}</td>
+                                        <td>{{id_depto_origen}}</td>
+                                        <td>{{firma}}</td>
+                                        <td>{{cargo}}</td>
+                                        <td>{{nombre_doc}}</td>
+                                        <td>{{fecha}}</td>
+                                        <td>{{nombre_Expediente}}</td>
+                                        <td>id_depto_actual</td>
+                                        <td>
+                                          <form action="/emp/tramites/pdf" method="post">
+                                            <input type="submit" name={{num_doc}} role="a" class="material-icons"
+                                              value="picture_as_pdf" style="background:none;border:none;color:white;" />
+                                          </form>
+                                        </td>
                                     </tr>
-
+                                  {{/each}}
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th scope="col"><input type="checkbox"></th>
-                                        <th scope="col">Reg</th>
-                                        <th scope="col">Origen</th>
-                                        <th scope="col">Firma</th>
-                                        <th scope="col">Cargo</th>
-                                        <th scope="col">Documento</th>
-                                        <th scope="col">Fecha Doc.</th>
-                                        <th scope="col">Asunto</th>
-                                        <th scope="col">Derivado a</th>
-                                        <th scope="col">Ver</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
 
