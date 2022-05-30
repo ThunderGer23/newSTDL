@@ -2,6 +2,7 @@
 const pool = require('../database');
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 
 router.get('/logemp', (req, res) => {
     res.render('layouts/emp/logInEmpleado.hbs');
@@ -19,9 +20,8 @@ router.get('/tramites', async (req, res) => {
     }
 });
 
-router.post('/tramites/pdf', async (req, res) => {
+router.post('/docprocess/pdf', async (req, res) => {
   const result = await pool.query(`SELECT nombre_doc, ruta FROM bandejaTramitesRealizados WHERE num_doc = "${Object.keys(req.body)[0]}"`);
-  console.log(result[0].ruta);
   if (result) {
       return res.sendFile(result[0].ruta+result[0].nombre_doc);
   }
@@ -49,7 +49,6 @@ router.post('/search', async (req, res) => {
 
     let cond = [];
     let query = 'SELECT * FROM bandejaTramitesRealizados'
-    console.log(req.body);
 
     if (req.body.start_date != '' && req.body.end_date != ''){
       cond.push(` fecha BETWEEN "${req.body.start_date}" AND "${req.body.end_date}"`);
@@ -82,7 +81,6 @@ router.post('/search', async (req, res) => {
     };
 
     const rows = await pool.query(query);
-    console.log(rows);
     res.render('layouts/emp/buscar.hbs',{rows});
 });
 
@@ -90,26 +88,40 @@ router.get('/docarchi', (req, res) => {
     res.render('layouts/emp/docarchivados.hbs');
 });
 
-router.get('/docrecieve', (req, res) => {
-    res.render('layouts/emp/docporrecibir.hbs');
+router.get('/docrecieve', async(req, res) => {
+  try{
+    const empleado = await pool.query(`SELECT * FROM gestor WHERE DNI='${req.user[0].DNI}';`);
+    const rows = await pool.query(`SELECT * FROM bandejaTramitesRealizados WHERE id_derivar_a=${empleado[0].id_Depto};`);
+    res.render('layouts/emp/docporrecibir.hbs',{rows});
+  }catch(error){
+    res.send(error);
+  }
 });
+
+router.post('/docrecieve',async(req,res) =>{
+  const derivado = await pool.query(`SELECT id_derivar_a FROM tramite WHERE num_doc="${req.body.docforrecepcionar}";`);
+  const derivacion = await pool.query(`UPDATE tramite SET id_depto_actual=${derivado[0].id_derivar_a} ,id_derivar_a=NULL WHERE num_doc="${req.body.docforrecepcionar}";`);
+  res.redirect('/emp/docrecieve');
+})
 
 router.get('/gentramite', (req,res) => {
     res.render('layouts/emp/generartramite.hbs');
 })
 
 router.post('/gentramite', async(req, res) => {
-  console.log("imprimir :3");
   try{
     if (!req.files) {
       return res.status(400).send("No files were uploaded.");
     };
-    console.log(">>>>>>>>>>>>>>>>>>>>",req.user[0]);
-    console.log(">>>>>>>>>>>>>>>>>>>>",req.body);
 
     const arch = req.files.documento;
 
     const userid = req.user[0].DNI;
+    fs.mkdir(__dirname+`/docs/`,(err) =>{
+      if(err){
+        console.log("");
+      }
+    });
     fs.mkdir(__dirname+`/docs/${userid}/`,(err) =>{
       if(err){
         console.log("");
@@ -122,7 +134,7 @@ router.post('/gentramite', async(req, res) => {
 
     const tupaType = {'0':false,'1':true,'2':null};
 
-    const docType = {'1':'C','2':'O','3':'S'};
+    const docType = {'1':'C','2':'O','3':'S','4':'M','5':'A'};
 
     let hoy = new Date();
 
@@ -144,49 +156,59 @@ router.post('/gentramite', async(req, res) => {
     const expediente = {
       id_Ente:null,
       nombre_expediente:req.body.asunto,
-      numero_hojas:req.body.numFolio,
-      tupa:tupaType[req.body.tupa],
-      id_Usuario:req.user[0].DNI,
-      id_Gestor:null,
-      id_TipoEnte:req.body.tipoDoc,
+      numero_hojas:req.body.folios,
+      tupa:(req.body.procedimientotupa)?(req.body.procedimientotupa.length > 0):false,
+      tupa_desc:req.body.procedimientotupa,
+      id_Usuario:null,
+      id_Gestor:req.user[0].DNI,
+      id_TipoEnte:req.body.tipodocumento,
     };
 
-    const query = `SELECT COUNT(*) FROM expediente WHERE id_TipoEnte=${req.body.tipoDoc} AND id_Usuario=${req.user[0].DNI};`;
+    (req.body.tipodocumento)?null:req.body.tipodocumento=2;
+
+    const query = `SELECT COUNT(*) FROM expediente WHERE id_TipoEnte=${req.body.tipodocumento};`;
     const rowss = await pool.query(query);
-    const newId = docType[req.body.tipoDoc]+`${rowss[0]['COUNT(*)']}`.padStart(4,'0');
+    const newId = docType[req.body.tipodocumento]+`${rowss[0]['COUNT(*)']}`.padStart(4,'0');
     const result = await pool.query('INSERT INTO documento SET ?',[archivo]);
     const result2 = await pool.query('INSERT INTO expediente SET ?',[expediente]);
-    const siglas = 'BDSM';
+    const empleado = await pool.query(`SELECT * FROM gestor WHERE DNI='${req.user[0].DNI}';`);
     const tramite = {
       id_Tramite:null,
       fecha:year+'-'+month+'-'+day,
       hora:hr+':'+min+':'+sec,
-      nombre_Tramite:req.body.details,
+      nombre_Tramite:req.body.detalle,
       estado:'Pendiente',
       num_doc:newId,
-      siglas:siglas,
+      siglas:req.body.siglas,
       id_Ente:result2.insertId,
       id_Movimiento:'1',
       id_TipoTramite:'1',
-      id_depto_origen:5,
-      id_depto_actual:5,
-      id_derivar_a:null
+      id_depto_origen:empleado[0].id_Depto,
+      id_depto_actual:null,
+      id_derivar_a:empleado[0].id_Depto
     };
+
     const result3 = await pool.query('INSERT INTO tramite SET ?',[tramite]);
     const doc_ente = {
       id_Documento:result.insertId,
       id_Ente:result2.insertId
     };
+
     const result4 = await pool.query('INSERT INTO doc_ente SET ?',[doc_ente]);
-    console.log("Success!!!");
-    res.redirect('/gentramite');
+    res.redirect('/emp/gentramite');
   }catch(err){
     res.status(500).send(err+'error');
   }
 });
 
-router.get('/docprocess', (req, res) => {
-    res.render('layouts/emp/documentosenproceso.hbs');
+router.get('/docprocess', async(req, res) => {
+  try{
+    const empleado = await pool.query(`SELECT * FROM gestor WHERE DNI='${req.user[0].DNI}';`);
+    const rows = await pool.query(`SELECT * FROM bandejaTramitesRealizados WHERE id_depto_actual=${empleado[0].id_Depto};`);
+    res.render('layouts/emp/documentosenproceso.hbs',{rows});
+  }catch(error){
+    res.send(error);
+  }
 });
 
 module.exports = router

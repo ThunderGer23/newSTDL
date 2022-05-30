@@ -84,20 +84,20 @@
                             </form>
                           </td>
                           <td>
-                            <form action="/emp/tramites/pdf" method="post">
-                              <input type="submit" name={{num_doc}} role="a" class="material-icons"
+                            <form action="/tramites/documento" method="post">
+                              <input type="submit" name={{num_doc}} role="a" class="material-icons" target="_blank"
                                 value="picture_as_pdf" style="background:none;border:none;color:white;" />
                             </form>
                           </td>
                           <td>
                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                              <form action="/emp/tramites/deltramite" method="post">
+                              <form action="/tramites/deltramite" method="post">
                                 <input type="submit" name="{{num_doc}}" id="{{num_doc}}" class="btn btn-warning"
-                                  value="Eliminar" role="button" />
+                                  value="Eliminar" role="button"/>
                               </form>
                               <form>
                                 <input type="sumbit" name="" id="" class="btn btn-success" role="button"
-                                  value="Ver ruta" />
+                                  value="Ver ruta"/>
                               </form>
                             </div>
                           </td>

@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
-const fs = require('fs')
+const fs = require('fs');
 
 //all here is code for routes get
 router.get('/', (req, res) => {
@@ -18,8 +18,8 @@ router.get('/forgotpass', (req, res) => {
     res.render('layouts/usr/olvideMiContrasena.hbs');
 });
 
-router.get('/userperfil', (req, res) => {  
-  res.render('layouts/usr/homeGestorPerfil.hbs');
+router.get('/userperfil', (req, res) => {
+  res.render('layouts/usr/homeGestorPerfil.hbs',{user:req.user});
 });
 
 router.get('/gentramite', (req, res) => {
@@ -33,6 +33,24 @@ router.get('/contrasena', (req, res) => {
 router.get('/tramites', async(req, res) => {
   const rows = await pool.query(`SELECT * FROM bandejaTramitesRealizados WHERE id_Usuario=${req.user[0].DNI};`);
   res.render('layouts/usr/bandejaTramitesRealizados.hbs',{rows});
+});
+
+router.post('/tramites/documento', async (req, res) => {
+  const result = await pool.query(`SELECT nombre_doc, ruta FROM bandejaTramitesRealizados WHERE num_doc = "${Object.keys(req.body)[0]}"`);
+  console.log(result[0].ruta);
+  if (result) {
+      return res.sendFile(result[0].ruta+result[0].nombre_doc);
+  }
+});
+
+router.post('/tramites/deltramite', async (req, res) => {
+    try {
+        const result = await pool.query(`DELETE FROM tramite WHERE num_doc = "${Object.keys(req.body)[0]}";`);
+        (result)?res.redirect('/tramites'):console.log('Error en la consulta');
+    }catch (err) {
+        console.error(err);
+        res.redirect('/tramites');
+    }
 });
 
 router.get('/about', (req,res)=>{
@@ -94,12 +112,14 @@ router.post('/gentramite', async(req, res) => {
       nombre_expediente:req.body.asunto,
       numero_hojas:req.body.numFolio,
       tupa:tupaType[req.body.tupa],
+      tupa_desc:null,
       id_Usuario:req.user[0].DNI,
       id_Gestor:null,
       id_TipoEnte:req.body.tipoDoc,
     };
 
-    const query = `SELECT COUNT(*) FROM expediente WHERE id_TipoEnte=${req.body.tipoDoc} AND id_Usuario=${req.user[0].DNI};`;
+
+    const query = `SELECT COUNT(*) FROM expediente WHERE id_TipoEnte=${req.body.tipoDoc};`;
     const rowss = await pool.query(query);
     const newId = docType[req.body.tipoDoc]+`${rowss[0]['COUNT(*)']}`.padStart(4,'0');
     const result = await pool.query('INSERT INTO documento SET ?',[archivo]);

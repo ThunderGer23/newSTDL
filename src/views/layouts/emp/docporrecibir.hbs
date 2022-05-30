@@ -3,12 +3,12 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-            
+
             {{>headeremp}}
 
             {{>sidebaremp}}
 
-            
+
 
             <!-- ============================================================== -->
             <!-- Start right Content here -->
@@ -23,127 +23,74 @@
                         <!-- end page title -->
                         <div class="row">
                           <table class="table table-sm table-hover table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Registro</th>
-                <th scope="col">Forma</th>
-                <th scope="col">Folios</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Número</th>
-                <th scope="col">Siglas</th>
-                <th scope="col">Oficina</th>
-                <th scope="col">Detalle</th>
-                <th scope="col">Entidad</th>
-                <th scope="col">Firma</th>
-                <th scope="col">Cargo</th>
-                <th scope="col">Asunto</th>
-                <th scope="col">Recepcionar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>000125</td>
-                <td>Original</td>
-                <td>1</td>
-                <td>Oficio</td>
-                <td>254</td>
-                <td>MDA/GRA-PE</td>
-                <td>Oficina de administración</td>
-                <td>........</td>
-                <td>Proyecto especial Alto Mayo</td>
-                <td>Ab. Mickey Reategui Salas</td>
-                <td>Jefe</td>
-                <td>daskdjaksjdalksjdakls</td>
-                <td>
-                  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#recepcionar">recepcionar</button>
-                </td>
+                            <thead>
+                              <tr>
+                                <th scope="col">Registro</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Folios</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Siglas</th>
+                                <th scope="col">Oficina</th>
+                                <th scope="col">Detalle</th>
+                                <th scope="col">Tupa</th>
+                                <th scope="col">Firma</th>
+                                <th scope="col">Asunto</th>
+                                <th scope="col">Recepcionar</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {{#each rows}}
+                                <tr>
+                                  <td>{{num_doc}}</td>
+                                  <td>{{fecha}}</td>
+                                  <td>{{numero_hojas}}</td>
+                                  <td>{{tipoEnte}}</td>
+                                  <td>{{siglas}}</td>
+                                  <td>{{id_depto_actual}}</td>
+                                  <td>{{nombre_Tramite}}</td>
+                                  <td>{{tupa_desc}}</td>
+                                  <td>{{nombre}} {{apellido_paterno}} {{apellido_materno}}</td>
+                                  <td>{{nombre_Expediente}}</td>
+                                  <td>
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                      data-bs-target="#recepcionar{{num_doc}}">recepcionar</button>
+                                  </td>
+                                </tr>
 
-              </tr>
-              <tr>
-                <td>000125</td>
-                <td>Original</td>
-                <td>1</td>
-                <td>Oficio</td>
-                <td>254</td>
-                <td>MDA/GRA-PE</td>
-                <td>Oficina de administración</td>
-                <td>........</td>
-                <td>Proyecto especial Alto Mayo</td>
-                <td>Ab. Mickey Reategui Salas</td>
-                <td>Jefe</td>
-                <td>daskdjaksjdalksjdakls</td>
-                <td>
-                  <button type="submit" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#recepcionar">recepcionar</button>
-                </td>
+                                <div class="modal fade" id="recepcionar{{num_doc}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header bg-secundary">
+                                        <h5 class="modal-title" id="exampleModalLabel">Recepcionar Expediente</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <form action="/emp/docrecieve" method="post">
+                                          <div class="mb-3">
+                                            <p>Registros que seran recepcionados</p>
+                                          </div>
+                                          <div class="mb-3">
+                                            <input type="text" name="docforrecepcionar" id="docforrecepcionar" value="{{num_doc}}">
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-primary">Grabar recepción</button>
+                                          </div>
+                                        </form>
+                                      </div>
 
-              </tr>
-              <tr>
-                <td>000325</td>
-                <td>Original</td>
-                <td>1</td>
-                <td>Oficio</td>
-                <td>254</td>
-                <td>MDA/GRA-PE</td>
-                <td>Oficina de administración</td>
-                <td>........</td>
-                <td>Proyecto especial Alto Mayo</td>
-                <td>Ab. Mickey Reategui Salas</td>
-                <td>Jefe</td>
-                <td>daskdjaksjdalksjdakls</td>
-                <td>
-                  <button type="submit" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#recepcionar">recepcionar</button>
-                </td>
-
-              </tr>
-              <tr>
-                <td>0001</td>
-                <td>Original</td>
-                <td>1</td>
-                <td>Oficio</td>
-                <td>254</td>
-                <td>MDA/GRA-PE</td>
-                <td>Oficina de administración</td>
-                <td>........</td>
-                <td>Proyecto especial Alto Mayo</td>
-                <td>Ab. Mickey Reategui Salas</td>
-                <td>Jefe</td>
-                <td>daskdjaksjdalksjdakls</td>
-                <td>
-                  <button type="submit" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#recepcionar">recepcionar</button>
-                </td>
-
-              </tr>
-              <tr>
-                <td>000254</td>
-                <td>Original</td>
-                <td>1</td>
-                <td>Oficio</td>
-                <td>254</td>
-                <td>MDA/GRA-PE</td>
-                <td>Oficina de administración</td>
-                <td>........</td>
-                <td>Proyecto especial Alto Mayo</td>
-                <td>Ab. Mickey Reategui Salas</td>
-                <td>Jefe</td>
-                <td>daskdjaksjdalksjdakls</td>
-                <td>
-                  <button type="submit" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#recepcionar">recepcionar</button>
-                </td>
-
-              </tr>
-            </tbody>
-          </table>
+                                    </div>
+                                  </div>
+                                </div>
+                              {{/each}}
+                            </tbody>
+                          </table>
                         </div>
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
 
-                
+
                {{>footer}}
             </div>
             <!-- end main content-->
@@ -153,31 +100,6 @@
 
 {{!-- end code --}}
 
-        <div class="modal fade" id="recepcionar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header bg-secundary">
-                <h5 class="modal-title" id="exampleModalLabel">Recepcionar Expediente</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <p>Registros que seran recepcionados</p>
-                  </div>
-                  <div class="mb-3">
-                    <input type="text" name="docforrecepcionar" id="docforrecepcionar" placeholder="000125">
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Grabar recepción</button>
-                  </div>
-                </form>
-              </div>
-
-            </div>
-          </div>
-        </div>
         <script>
           var exampleModal = document.getElementById('exampleModal')
           exampleModal.addEventListener('show.bs.modal', function (event) {
